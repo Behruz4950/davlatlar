@@ -1,0 +1,2 @@
+# davlatlar
+Davlatlar ro'yxati
