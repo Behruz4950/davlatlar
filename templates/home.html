@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'vender/bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'vender/bootstrap-icons/bootstrap-icons.css' %}">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <div class="text-right">
+            <a href="{% url 'posts_create' %}" class="btn btn-info mb-4">Qo'shish</a>
+        </div>
+        <div class="list-group">
+            {% for post in posts %}
+                <div class="list-group-item d-flex align-items-center">
+                    <div>
+                        <p>{{ post.text }}</p>
+                    </div>
+                    <div class="ml-auto">
+                        <a href="{% url 'posts_update' post.id %}" class="btn btn-warning">
+                            <i class="bi bi-pencil text-white"></i>
+                        </a>
+                        <a href="{% url 'posts_delete' post.id %}" class="btn btn-primary">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="container text-center">
+                    <h4>Postlar mavjud emas!</h4>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>    
+
+
+
+
+    <script src="{% static 'vender/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'vender/bootstrap/js/bootstrap.bundle.js' %}"></script>
+</body>
+</html>

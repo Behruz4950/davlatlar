@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'vender/bootstrap/css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'vender/bootstrap-icons/bootstrap-icons.css' %}">
+
+
+<div class="container pt-3">
+    <form action="{% if p %}{% url 'posts_update' p.id %}{% else %}{% url 'posts_create' %}{% endif %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_title">Davlat nomi:</label>
+            <input id="id_title" type="text" name="title" value="{{ p.text }}" class="form-control" placeholder="Davlat nomini kiriting">
+        </div>
+        <button type="submit" class="btn btn-success">Saqlash</button>
+    </form>
+</div>

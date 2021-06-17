@@ -1,4 +1,4 @@
 from django.db import models
 
-class davlatlar(models.Model):
+class Davlatlar(models.Model):
     text = models.TextField()
